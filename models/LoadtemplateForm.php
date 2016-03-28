@@ -67,6 +67,11 @@ class LoadtemplateForm extends Model
             else return true;
     }
 
+    
+    public function downloadDocx()
+    {
+        return $pathAnketaFile;
+    }
   
 
 }

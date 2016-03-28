@@ -191,4 +191,11 @@ class SiteController extends Controller
         }
         else {return $this->render('loadtemplate',['model'=>$model]);}
     }
+    public function actionDownload()
+    { $path=Yii::$app->request->get('path');
+        if(file_exists($path)){
+            Yii::$app->response->sendFile($path);
+            return unlink($path);
+        }
+    }
 }

@@ -16,10 +16,9 @@ use yii\widgets\ActiveForm;
         <tr>
             <td><?php $array=$model['vars']; foreach ($array as $key=>$var)
                 {echo '<b>'.$key.'</b> '.$var.'<br>';}
-                
                 ?>
                 <br>
-               <a href="<?=Html::encode($model['pathAnketaFile'])?>">Ссылка на скачивание</a>
+                <?= Html::a('Скачать', ['site/download','path'=>$model['pathAnketaFile']], ['class' => 'btn btn-success'])?>
             </td>
         </tr>
 
