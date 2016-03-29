@@ -161,12 +161,25 @@ class SiteController extends Controller
     public function actionLoadtemplate()
     {   
         $model = new LoadtemplateForm();
+        $model->arrayPathTemplatesFiles=scandir(realpath('files/templates/'));
         require_once 'PhpWord/Autoloader.php';
         \PhpOffice\PhpWord\Autoloader::register();
         $phpWord = new \PhpOffice\PhpWord\PhpWord();
         if (Yii::$app->request->post())
         {
             $model->docx = UploadedFile::getInstance($model, 'docx');
+            $key=Yii::$app->request->post('LoadtemplateForm');
+
+         if (!empty($key['keyTemplate']))
+            { $id=$key['keyTemplate'];
+                $pathTemplate = 'files/templates/' . $model->arrayPathTemplatesFiles[$id];
+                $template = $phpWord->loadTemplate($pathTemplate);
+                $vars = $template->getVariables();
+                $model->pathTemplate=$pathTemplate;
+                foreach ($vars as $value) {$model->vars[$value]="";}
+                return $this->render('loadtemplateInputData', ['model' => $model]);
+            }
+
             if ($model->uploadDocx())
             {//file upload succefully
                 $pathTemplate = 'files/templates/' . $model->docx->getBaseName().'.docx';
@@ -175,6 +188,7 @@ class SiteController extends Controller
                 $model->pathTemplate=$pathTemplate;
                 foreach ($vars as $value) {$model->vars[$value]="";}
                 return $this->render('loadtemplateInputData', ['model' => $model]);
+               
             }
               $model = Yii::$app->request->post('LoadtemplateForm');
               $id=Yii::$app->request->post('_csrf');
@@ -182,7 +196,7 @@ class SiteController extends Controller
             $template = $phpWord->loadTemplate(realpath($pathTemplate));
             $anketaFileName = str_replace(" ", "", $id) . '.docx';
             $anketaFile = 'files/' . $anketaFileName;
-            foreach($model['vars'] as $key=>$value)
+            foreach($model['vars'] as $key=>$value) 
                 $template->setValue($key, $value);
             $template->saveAs($anketaFile);
             $model['pathAnketaFile']=$anketaFile;

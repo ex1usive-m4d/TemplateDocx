@@ -22,7 +22,8 @@ class LoadtemplateForm extends Model
     public $paramsV;
     public $pathTemplate;
     public $pathAnketaFile;
-
+    public $arrayPathTemplatesFiles;
+    public $keyTemplate;
     public function rules()
     {
         return [

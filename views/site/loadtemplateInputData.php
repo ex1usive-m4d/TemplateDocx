@@ -22,7 +22,6 @@ use yii\widgets\ActiveForm;
                 {
                     echo '<b>'.$key.'</b>';
                     echo $form->field($model, 'vars[' . $key . ']')->textInput()->label(false);
-                 
                 } 
                 echo $form->field($model,'pathTemplate')->hiddenInput()->label(false);
                
