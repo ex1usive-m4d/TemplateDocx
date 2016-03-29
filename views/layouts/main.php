@@ -27,7 +27,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'Chuvash State University',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -37,11 +37,11 @@ AppAsset::register($this);
         'options' => ['class' => 'navbar-nav navbar-right'],
         'items' => [
             ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Create Docx', 'url' => ['/site/createdocx']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
+            //['label' => 'About', 'url' => ['/site/about']],
+            //['label' => 'Create Docx', 'url' => ['/site/createdocx']],
+            //['label' => 'Contact', 'url' => ['/site/contact']],
             ['label' => 'Load Template', 'url' => ['/site/loadtemplate']],
-            Yii::$app->user->isGuest ? (
+           /* Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
                 '<li>'
@@ -52,7 +52,7 @@ AppAsset::register($this);
                 )
                 . Html::endForm()
                 . '</li>'
-            )
+            )*/
         ],
     ]);
     NavBar::end();
@@ -66,15 +66,15 @@ AppAsset::register($this);
     </div>
 </div>
 
+
+<?php $this->endBody() ?></div>
 <footer class="footer">
     <div class="container">
-        <p class="pull-left">&copy; My Company <?= date('Y') ?></p>
+        <p class="pull-left">&copy; CHUVSU <?= date('Y') ?></p>
 
         <p class="pull-right"><?= Yii::powered() ?></p>
     </div>
 </footer>
-
-<?php $this->endBody() ?>
 </body>
 </html>
 <?php $this->endPage() ?>

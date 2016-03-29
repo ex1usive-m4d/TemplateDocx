@@ -10,28 +10,31 @@ use yii\widgets\ActiveForm;
 
 foreach($model->arrayPathTemplatesFiles as $key=>$var){$arrayPath[]=$var;};
 ?>
-
+<div id="body"><center>
+<div id="left_col">
 <div class="col-lg-5" >
 
     <?php $form = ActiveForm::begin(['options'=>['enctype'=>'multipart/form-data']]); ?>
 
-  <left>Загрузите свой шаблон <?= $form->field($model, 'docx')->fileInput() ?></left>
+  <left> <?= $form->field($model, 'docx')->fileInput()->label('Загрузите свой шаблон') ?></left>
     <div class="form-group">
 
      <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary']) ?>
     <?php ActiveForm::end(); ?>
+</div></div>
 </div>
-    Или Выбирете из имеющихся
-    <?php $form = ActiveForm::begin();?>
-    <right><?= $form->field($model,'keyTemplate')->dropDownList($arrayPath,['keyTemplate'=>$arrayPath]);?></right>
-    <div class="form-group">
 
-        <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary']) ?>
-        <?php ActiveForm::end(); ?>
-    </div>
-
-
-
-
+<div id="content">  <div class="col-lg-5">
+        <?php $form = ActiveForm::begin();?>
+        <?= $form->field($model,'keyTemplate')->dropDownList($arrayPath,['keyTemplate'=>$arrayPath])->label('Или Выберите из имеющихся');?>
+        <div class="form-group">
+            <?= Html::submitButton('Отправить', ['class' => 'btn btn-primary']) ?>
+            <?php ActiveForm::end(); ?>
+        </div>
+  </div>
+</div></center>
 </div>
+
+
+
 

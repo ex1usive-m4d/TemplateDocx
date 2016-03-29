@@ -2,23 +2,24 @@
 
 /* @var $this yii\web\View */
 
-$this->title = 'My Yii Application';
+$this->title = 'Home Page ';
 ?>
 <div class="site-index">
-
+<br><br>
     <div class="jumbotron">
-        <h1>Congratulations!</h1>
+        <h1>Поздравляем!</h1>
 
-        <p class="lead">You have successfully created your Yii-powered application.</p>
+        <p class="lead">Вы зашли на сайт</p>
 
-        <p><a class="btn btn-lg btn-success" href="http://www.yiiframework.com">Get started with Yii</a></p>
+        <p><a class="btn btn-lg btn-success" href="/index.php?r=site%2Floadtemplate">Загрузить свой шаблон</a></p>
     </div>
 
-    <div class="body-content">
-
+<br><br>
+   <div class="body-content">
+<center><p class="lead">Загружайте свои шаблоны или используте уже загруженные <br> заполняйте формы сколько влезет</p></center>
         <div class="row">
             <div class="col-lg-4">
-                <h2>Heading</h2>
+                <!--<h2>Heading</h2>
 
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
                     dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
@@ -46,7 +47,7 @@ $this->title = 'My Yii Application';
                     fugiat nulla pariatur.</p>
 
                 <p><a class="btn btn-default" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
-            </div>
+            </div>-->
         </div>
 
     </div>
